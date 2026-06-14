@@ -88,8 +88,6 @@ When building data connectors (e.g., for **LangChain**, **LlamaIndex**, or custo
  1. Look for ai-manifest.jsonld in the root target directory.
  2. If present, parse the llmInferenceRules.
  3. Append the instructionsForAIAgents and the array of axioms directly into the agent's **System Prompt** window *before* allowing user interaction or vector search queries over the underlying files.
-## Reference Paper & Case Study
-The theoretical framework, philosophical foundations, and a full real-world validation case study (applied to 18th-century pre-industrial fiscal data from the *Catastro de Ensenada*) can be found in our foundational paper:
- * **Paper PDF:** the_modern_repository_triad_ai_manifest.pdf (Available in this repository / Zenodo Link)
+
 ## License
 This project and the template specification are licensed under the **Creative Commons Attribution 4.0 International (CC BY 4.0)**. You are free to share, copy, and adapt the template for any purpose, even commercially, provided appropriate credit is given.
