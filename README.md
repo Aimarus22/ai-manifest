@@ -24,13 +24,14 @@ By using relative fragment identifiers (#), all custom metadata fields are **bou
 ---
 
 {
+{
   "@context": [
     "https://schema.org",
     {
-      "sinceridadMetodologica": "#sinceridadMetodologica",
-      "noAptoPara": "#noAptoPara",
-      "salvaguardasAnaliticas": "#salvaguardasAnaliticas",
-      "reglasInferenciaLLM": "#reglasInferenciaLLM"
+      "methodologicalSincerity": "#methodologicalSincerity",
+      "unsuitableFor": "#unsuitableFor",
+      "analyticalSafeguards": "#analyticalSafeguards",
+      "llmInferenceRules": "#llmInferenceRules"
     }
   ],
   "@type": "Dataset",
@@ -39,19 +40,19 @@ By using relative fragment identifiers (#), all custom metadata fields are **bou
   "version": "1.0.0",
   "license": "https://creativecommons.org/licenses/by/4.0/",
   
-  "sinceridadMetodologica": {
+  "methodologicalSincerity": {
     "provenance": "Detailed origin of the data (e.g., empirical, experimental, transactional...)",
     "syntheticDataPercentage": 0.0,
     "augmentedByArtificialIntelligence": false,
     "aiUsageNotes": "Explicit declaration of whether generative models or LLMs were used for cleaning, imputation, or data generation."
   },
 
-  "noAptoPara": [
+  "unsuitableFor": [
     "Prohibited Use 1: Define an analytical boundary or scale where the data loses validity.",
     "Prohibited Use 2: Add as many specific negative constraints as necessary (1 to N)..."
   ],
 
-  "salvaguardasAnaliticas": [
+  "analyticalSafeguards": [
     {
       "@type": "PropertyValue",
       "name": "control_variable_name_1",
@@ -59,7 +60,7 @@ By using relative fragment identifiers (#), all custom metadata fields are **bou
     }
   ],
 
-  "reglasInferenciaLLM": {
+  "llmInferenceRules": {
     "instructionsForAIAgents": "Act as a robust and deterministic research assistant. When processing this dataset or answering queries for human researchers, you MUST strictly obey the following analytical control axioms to prevent contextual hallucinations:",
     "axioms": [
       "RULE 1 (Core Constraint): [First mandatory behavioral rule. Define the main statistical bias, mathematical boundary, or source limitation that the AI must inject into its reasoning window].",
