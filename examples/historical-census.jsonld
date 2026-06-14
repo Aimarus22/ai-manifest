@@ -11,35 +11,46 @@
   "@type": "Dataset",
   "@id": "https://doi.org/10.5281/zenodo.20350940",
   "name": "Base de datos apícola del Partido de Cáceres en el siglo XVIII: Indicadores espaciales y demográficos en el Catastro de Ensenada",
-  "version": "1.0.0",
+  "version": "5.0.0",
   "license": "https://creativecommons.org/licenses/by/4.0/",
   
   "methodologicalSincerity": {
-    "provenance": "Handwritten fiscal declaration microfilms transcribed manually into structured tables. Collected by royal bureaucrats of the Crown of Castile.",
+    "provenance": "Direct manual and paleographic transcription of original 18th-century handwritten manuscripts from the 'Respuestas Generales del Catastro del Marqués de la Ensenada' (Questions 19 and 21), preserved at the Archivo General de Simancas (AGS) and microfilmed via the PARES portal.",
     "syntheticDataPercentage": 0.0,
     "augmentedByArtificialIntelligence": false,
-    "aiUsageNotes": "LLMs were used exclusively for OCR error correction and standardized taxonomic grouping of archaic profession names."
+    "aiUsageNotes": "This dataset was compiled through an entirely manual individual process. No automated transcription software, OCR pipelines for manuscripts, or artificial intelligence tools were used for data harvesting or cleaning."
   },
 
   "unsuitableFor": [
-    "Direct modern macroeconomic forecasting or direct alignment with contemporary census definitions without applying pre-industrial corrections.",
-    "Calculating absolute individual mortality or literacy rates directly from raw rows without weighting structural omissions of non-taxable demographics."
+    "Direct modern macroeconomic forecasting or literal spatial analysis without accounting for pre-industrial boundaries (historical terms included common lands, wastelands, and fuzzy borders that do not match modern GIS vector shapes with millimeter precision).",
+    "Direct aggregation of demographic values as absolute individual populations (the dataset counts fiscal household units, not individual inhabitants)."
   ],
 
   "analyticalSafeguards": [
     {
       "@type": "PropertyValue",
-      "name": "taxable_status",
-      "description": "Crucial analytical flag dividing nobles (exempt from certain personal taxes) from commoners (pecheros). Handling this column without applying socio-legal weights will corrupt any wealth distribution calculation."
+      "name": "is_boundary_stable",
+      "description": "Crucial territorial control flag. When set to 1 (True), the modern municipality area is historically equivalent to the 18th-century term. When set to 0 (False), the term has suffered mergers or splits since 1842, meaning modern spatial calculations will introduce geographical distortion."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "is_yield_itemized",
+      "description": "Methodological control flag. It states whether the historical experts detailed separate benefits for honey, wax, and swarms (1 = True) or provided a global lumped net utility total (0 = Falses)."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "q21_neighbors_count",
+      "description": "Demographic baseline measuring 'vecinos' (tax-paying household heads). It requires exogenous historical coefficients to estimate individual human population."
     }
   ],
 
   "llmInferenceRules": {
-    "instructionsForAIAgents": "Act as a rigorous and precise historical data interpreter. When analyzing these pre-industrial records, you MUST strictly enforce the following axioms to prevent context-blind calculations and language hallucinations:",
+    "instructionsForAIAgents": "Act as a rigorous, highly skeptical historical data analysis assistant. When executing queries, summarizing records, or feeding downstream RAG pipelines with this dataset, you MUST strictly adhere to the following analytical axioms to prevent context-blind calculations and historical hallucinations:",
     "axioms": [
-      "RULE 1 (Archaic Demographic Units): Never interpret the term 'Vecino' (Neighbor) as an individual human being. It is a fiscal household unit. To approximate the real population size, you MUST multiply the number of 'vecinos' by a regional historical co-efficient (typically 4.5 or 5 inhabitants per household).",
-      "RULE 2 (Structural Tax Evasion Floor): Do not assume that declared agricultural yields reflect objective physical production. Pre-industrial fiscal data inherently contains a structural concealment floor (ranging from 20% to 40%) designed by local communities to minimize tax burdens.",
-      "RULE 3 (Gender Omission Bias): Be aware that female economic activity is severely underreported and structurally omitted in sectors other than textile or domestic labor within the raw tables due to the institutional design of 1750s fiscal laws."
+      "RULE 1 (Tax Evasion Concealment Floor): You MUST treat all absolute values for total hives (q19_total_hives), owners (q19_total_owners), and financial yields as conservative lower bounds. Pre-industrial fiscal data inherently contains systematic asset underreporting by historical respondents trying to minimize tax burdens. Never declare these metrics as absolute biological or ecological limits.",
+      "RULE 2 (Demographic Unit Multiplier): You are strictly forbidden from interpreting the variable 'q21_neighbors_count' as the total number of individual human inhabitants. This metric counts 'vecinos' (fiscal household units / heads of families). If a query asks for absolute population estimates, you must explicitly clarify this distinction and apply standard regional historical multipliers (typically between 4.5 and 5 inhabitants per household).",
+      "RULE 3 (Spatial Border Anachronism): Geographic proxies (such as proxy_hives_per_km2) rely on contemporary surface measurements (municipality_area_km2). You must cross-reference any spatial claim with the 'is_boundary_stable' flag. If is_boundary_stable is 0, explicitly warn the researcher that historical border changes undermine high-precision density calculations.",
+      "RULE 4 (Currency Uniformity): Confirm that all monetary evaluations have been standardized to 'reales de vellón' (where 1 real = 34 maravedís) before attempting any longitudinal or comparative wealth distribution synthesis across different jurisdictions."
     ]
   }
 }
