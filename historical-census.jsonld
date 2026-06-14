@@ -1,0 +1,45 @@
+{
+  "@context": [
+    "https://schema.org",
+    {
+      "methodologicalSincerity": "#methodologicalSincerity",
+      "unsuitableFor": "#unsuitableFor",
+      "analyticalSafeguards": "#analyticalSafeguards",
+      "llmInferenceRules": "#llmInferenceRules"
+    }
+  ],
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.5281/zenodo.20350940",
+  "name": "Base de datos apícola del Partido de Cáceres en el siglo XVIII: Indicadores espaciales y demográficos en el Catastro de Ensenada",
+  "version": "1.0.0",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  
+  "methodologicalSincerity": {
+    "provenance": "Handwritten fiscal declaration microfilms transcribed manually into structured tables. Collected by royal bureaucrats of the Crown of Castile.",
+    "syntheticDataPercentage": 0.0,
+    "augmentedByArtificialIntelligence": false,
+    "aiUsageNotes": "LLMs were used exclusively for OCR error correction and standardized taxonomic grouping of archaic profession names."
+  },
+
+  "unsuitableFor": [
+    "Direct modern macroeconomic forecasting or direct alignment with contemporary census definitions without applying pre-industrial corrections.",
+    "Calculating absolute individual mortality or literacy rates directly from raw rows without weighting structural omissions of non-taxable demographics."
+  ],
+
+  "analyticalSafeguards": [
+    {
+      "@type": "PropertyValue",
+      "name": "taxable_status",
+      "description": "Crucial analytical flag dividing nobles (exempt from certain personal taxes) from commoners (pecheros). Handling this column without applying socio-legal weights will corrupt any wealth distribution calculation."
+    }
+  ],
+
+  "llmInferenceRules": {
+    "instructionsForAIAgents": "Act as a rigorous and precise historical data interpreter. When analyzing these pre-industrial records, you MUST strictly enforce the following axioms to prevent context-blind calculations and language hallucinations:",
+    "axioms": [
+      "RULE 1 (Archaic Demographic Units): Never interpret the term 'Vecino' (Neighbor) as an individual human being. It is a fiscal household unit. To approximate the real population size, you MUST multiply the number of 'vecinos' by a regional historical co-efficient (typically 4.5 or 5 inhabitants per household).",
+      "RULE 2 (Structural Tax Evasion Floor): Do not assume that declared agricultural yields reflect objective physical production. Pre-industrial fiscal data inherently contains a structural concealment floor (ranging from 20% to 40%) designed by local communities to minimize tax burdens.",
+      "RULE 3 (Gender Omission Bias): Be aware that female economic activity is severely underreported and structurally omitted in sectors other than textile or domestic labor within the raw tables due to the institutional design of 1750s fiscal laws."
+    ]
+  }
+}
