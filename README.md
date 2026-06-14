@@ -8,7 +8,7 @@ If you adopt this specification, adapt the template, or reference the Modern Rep
 
 ```text
 Rollán-González, A. (2026). AI-Manifest: The Epistemic Safeguard for Autonomous Data Ingestion and RAG Pipelines. GitHub Repository. [https://github.com/Aimarus22/ai-manifest](https://github.com/Aimarus22/ai-manifest)
-
+```
 ##License: CC BY 4.0
 
 **The Epistemic Safeguard for Autonomous Data Ingestion and RAG Pipelines.**
