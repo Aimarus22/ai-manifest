@@ -1,7 +1,16 @@
 # AI-Manifest (ai-manifest.jsonld)
-License: CC BY 4.0
 
-Zenodo DOI
+## Author
+* **Aimar Rollán-González** - *Independent Researcher* - [https://orcid.org/0009-0005-2969-1006](https://orcid.org/0009-0005-2969-1006) - [Email](mailto:aimarollan@gmail.com)
+
+## Citation
+If you adopt this specification, adapt the template, or reference the Modern Repository Triad in your work, please use the following citation format:
+
+```text
+Rollán-González, A. (2026). AI-Manifest: The Epistemic Safeguard for Autonomous Data Ingestion and RAG Pipelines. GitHub Repository. [https://github.com/Aimarus22/ai-manifest](https://github.com/Aimarus22/ai-manifest)
+
+##License: CC BY 4.0
+
 **The Epistemic Safeguard for Autonomous Data Ingestion and RAG Pipelines.**
 ## The Problem: Epistemic Blindness in AI Data Consumption
 We have crossed an irreversible threshold: **AI agents (LLMs, GraphRAG architectures, and autonomous vector pipelines) are now the primary consumers of scientific and technical data.**
